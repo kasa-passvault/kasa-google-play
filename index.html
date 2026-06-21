@@ -34,8 +34,16 @@
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(0, 216, 232, 0.18), transparent 34%),
-        linear-gradient(180deg, #071113 0%, #020506 100%);
+        radial-gradient(
+          circle at top,
+          rgba(0, 216, 232, 0.18),
+          transparent 34%
+        ),
+        linear-gradient(
+          180deg,
+          #071113 0%,
+          #020506 100%
+        );
       color: var(--text);
       display: flex;
       align-items: center;
@@ -152,7 +160,8 @@
     }
 
     .feature {
-      padding: 12px 14px;
+      position: relative;
+      padding: 12px 14px 12px 45px;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.035);
       border: 1px solid rgba(255, 255, 255, 0.07);
@@ -163,7 +172,9 @@
 
     .feature::before {
       content: "✓";
-      margin-right: 9px;
+      position: absolute;
+      left: 18px;
+      top: 12px;
       color: var(--accent);
       font-weight: 800;
     }
@@ -199,7 +210,9 @@
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
-      transition: color 160ms ease;
+      transition:
+        color 160ms ease,
+        opacity 160ms ease;
     }
 
     .privacy:hover {
@@ -255,8 +268,8 @@
   <main class="card">
     <nav
       class="language-switcher"
-      aria-label="Language selection"
       id="language-switcher"
+      aria-label="Language selection"
     >
       <button
         class="language-button active"
@@ -288,9 +301,9 @@
 
     <img
       class="logo-img"
+      id="logo"
       src="./assets/kasa-logo.png"
       alt="KASA Password Manager logo"
-      id="logo"
     />
 
     <h1>KASA Password Manager</h1>
@@ -348,7 +361,9 @@
   </main>
 
   <script>
-    (() => {
+    (function () {
+      "use strict";
+
       const DEFAULT_LANGUAGE = "en";
       const STORAGE_KEY = "kasa-google-play-language";
       const SUPPORTED_LANGUAGES = ["en", "de", "tr"];
@@ -359,4 +374,242 @@
           pageTitle: "KASA Password Manager - Download",
           metaDescription:
             "Download KASA Password Manager on Google Play. No monthly or yearly subscription. Offline, encrypted, no cloud account, no ads, no analytics, and no tracking.",
- 
+          languageLabel: "Language selection",
+          logoAlt: "KASA Password Manager logo",
+          subtitle:
+            "Offline and encrypted password manager built for users who want full control over their sensitive data.",
+          privacySummary:
+            "<strong>No monthly or yearly subscription.</strong> No cloud account. No registration. No ads. No analytics. No tracking.",
+          featureVault:
+            "Encrypted local password vault",
+          featureContent:
+            "Secure notes, attachments, and encrypted backups",
+          featureDevice:
+            "Your sensitive data stays on your device",
+          featurePro:
+            "Optional KASA Pro upgrade with a one-time purchase",
+          downloadButton:
+            "Download on Google Play",
+          privacyLink:
+            "Privacy Policy",
+          note:
+            "KASA works offline and does not require a cloud account. Your sensitive data is stored locally in an encrypted vault under your control."
+        },
+
+        de: {
+          htmlLanguage: "de",
+          pageTitle: "KASA Password Manager - Herunterladen",
+          metaDescription:
+            "KASA Password Manager bei Google Play herunterladen. Kein monatliches oder jährliches Abonnement. Offline, verschlüsselt, ohne Cloud-Konto, Werbung, Analysen oder Tracking.",
+          languageLabel: "Sprachauswahl",
+          logoAlt: "Logo des KASA Password Managers",
+          subtitle:
+            "Ein offline nutzbarer und verschlüsselter Passwort-Manager für Menschen, die die volle Kontrolle über ihre sensiblen Daten behalten möchten.",
+          privacySummary:
+            "<strong>Kein monatliches oder jährliches Abonnement.</strong> Kein Cloud-Konto. Keine Registrierung. Keine Werbung. Keine Analysen. Kein Tracking.",
+          featureVault:
+            "Verschlüsselter lokaler Passwort-Tresor",
+          featureContent:
+            "Sichere Notizen, Anhänge und verschlüsselte Backups",
+          featureDevice:
+            "Deine sensiblen Daten bleiben auf deinem Gerät",
+          featurePro:
+            "Optionales KASA Pro-Upgrade als einmaliger Kauf",
+          downloadButton:
+            "Bei Google Play herunterladen",
+          privacyLink:
+            "Datenschutzerklärung",
+          note:
+            "KASA funktioniert offline und benötigt kein Cloud-Konto. Deine sensiblen Daten werden lokal in einem verschlüsselten Tresor unter deiner Kontrolle gespeichert."
+        },
+
+        tr: {
+          htmlLanguage: "tr",
+          pageTitle: "KASA Password Manager - İndir",
+          metaDescription:
+            "KASA Password Manager'ı Google Play'den indirin. Aylık veya yıllık abonelik yok. Çevrimdışı, şifreli, bulut hesabı, reklam, analiz ve takip yok.",
+          languageLabel:
+            "Dil seçimi",
+          logoAlt:
+            "KASA Password Manager logosu",
+          subtitle:
+            "Hassas verileri üzerinde tam kontrol isteyen kullanıcılar için geliştirilmiş çevrimdışı ve şifreli parola yöneticisi.",
+          privacySummary:
+            "<strong>Aylık veya yıllık abonelik yok.</strong> Bulut hesabı yok. Kayıt zorunluluğu yok. Reklam yok. Analiz yok. Takip yok.",
+          featureVault:
+            "Şifrelenmiş yerel parola kasası",
+          featureContent:
+            "Güvenli notlar, ekler ve şifrelenmiş yedekler",
+          featureDevice:
+            "Hassas verilerin cihazında kalır",
+          featurePro:
+            "İsteğe bağlı KASA Pro, tek seferlik satın alma ile sunulur",
+          downloadButton:
+            "Google Play'den indir",
+          privacyLink:
+            "Gizlilik Politikası",
+          note:
+            "KASA çevrimdışı çalışır ve bulut hesabı gerektirmez. Hassas verilerin, senin kontrolündeki şifrelenmiş yerel bir kasada saklanır."
+        }
+      };
+
+      const elements = {
+        metaDescription:
+          document.getElementById("meta-description"),
+        languageSwitcher:
+          document.getElementById("language-switcher"),
+        logo:
+          document.getElementById("logo"),
+        subtitle:
+          document.getElementById("subtitle"),
+        privacySummary:
+          document.getElementById("privacy-summary"),
+        featureVault:
+          document.getElementById("feature-vault"),
+        featureContent:
+          document.getElementById("feature-content"),
+        featureDevice:
+          document.getElementById("feature-device"),
+        featurePro:
+          document.getElementById("feature-pro"),
+        downloadButton:
+          document.getElementById("download-button"),
+        privacyLink:
+          document.getElementById("privacy-link"),
+        note:
+          document.getElementById("note")
+      };
+
+      const languageButtons = Array.from(
+        document.querySelectorAll(".language-button")
+      );
+
+      function getSavedLanguage() {
+        try {
+          const savedLanguage =
+            window.localStorage.getItem(STORAGE_KEY);
+
+          if (
+            savedLanguage &&
+            SUPPORTED_LANGUAGES.includes(savedLanguage)
+          ) {
+            return savedLanguage;
+          }
+        } catch (error) {
+          return DEFAULT_LANGUAGE;
+        }
+
+        return DEFAULT_LANGUAGE;
+      }
+
+      function saveLanguage(language) {
+        try {
+          window.localStorage.setItem(
+            STORAGE_KEY,
+            language
+          );
+        } catch (error) {
+          // Dil seçimi depolama kapalı olsa da çalışmaya devam eder.
+        }
+      }
+
+      function setLanguage(language, shouldSave) {
+        const safeLanguage =
+          SUPPORTED_LANGUAGES.includes(language)
+            ? language
+            : DEFAULT_LANGUAGE;
+
+        const text = translations[safeLanguage];
+
+        document.documentElement.lang =
+          text.htmlLanguage;
+
+        document.title =
+          text.pageTitle;
+
+        elements.metaDescription.setAttribute(
+          "content",
+          text.metaDescription
+        );
+
+        elements.languageSwitcher.setAttribute(
+          "aria-label",
+          text.languageLabel
+        );
+
+        elements.logo.setAttribute(
+          "alt",
+          text.logoAlt
+        );
+
+        elements.subtitle.textContent =
+          text.subtitle;
+
+        elements.privacySummary.innerHTML =
+          text.privacySummary;
+
+        elements.featureVault.textContent =
+          text.featureVault;
+
+        elements.featureContent.textContent =
+          text.featureContent;
+
+        elements.featureDevice.textContent =
+          text.featureDevice;
+
+        elements.featurePro.textContent =
+          text.featurePro;
+
+        elements.downloadButton.textContent =
+          text.downloadButton;
+
+        elements.privacyLink.textContent =
+          text.privacyLink;
+
+        elements.note.textContent =
+          text.note;
+
+        languageButtons.forEach(function (button) {
+          const isActive =
+            button.getAttribute("data-language") ===
+            safeLanguage;
+
+          button.classList.toggle(
+            "active",
+            isActive
+          );
+
+          button.setAttribute(
+            "aria-pressed",
+            String(isActive)
+          );
+        });
+
+        if (shouldSave !== false) {
+          saveLanguage(safeLanguage);
+        }
+      }
+
+      languageButtons.forEach(function (button) {
+        button.addEventListener(
+          "click",
+          function () {
+            const selectedLanguage =
+              button.getAttribute("data-language");
+
+            setLanguage(
+              selectedLanguage,
+              true
+            );
+          }
+        );
+      });
+
+      setLanguage(
+        getSavedLanguage(),
+        false
+      );
+    })();
+  </script>
+</body>
+</html>
